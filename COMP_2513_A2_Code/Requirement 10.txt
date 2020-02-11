@@ -1,0 +1,1 @@
+This requirement is fulfilled since assignment #2 (including this text file within in) is submitted under a /assignment2 directory in falcon. This text file can be found in both the zipped folder on acorn and under /assignment2 on falcon.

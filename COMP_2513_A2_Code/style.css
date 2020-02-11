@@ -1,0 +1,64 @@
+/* REQUIREMENT #9: this is the external CSS file used for making the madlib input
+ * and output a bit fancier*/
+body {
+	text-align: center;
+	color: darkslategrey;	
+}
+
+h1 {
+	font-family: "Lucida Console", Monaco, monospace;
+	color: darkslategrey;	
+}
+
+h4 {
+	font-family: "Lucida Console", Monaco, monospace;
+	color: darkslategrey;
+	font-size: 70%;
+}
+
+p {
+	font-family: "Lucida Console", Monaco, monospace;
+	color: darkslategrey;	
+}
+
+img {
+	height: auto;
+	max-width: 100px;
+	margin-bottom: 10px;
+}
+
+form label {
+	font-family: "Lucida Console", Monaco, monospace;
+	display: inline-block;
+	width: 100px;
+}
+
+form div {
+	margin-bottom: 10px;
+
+}
+
+footer {
+	color: lightseagreen;
+	font-size: 70%;
+}
+
+#input {
+	font-style: italic;
+}
+
+#message  {
+	font-style: italic;
+	border-left-style: solid;
+	border-color: lightseagreen;
+	background-color: honeydew;
+	line-height: 20pt;
+
+}
+
+.error {
+	font-family: "Lucida Console", Monaco, monospace;	
+	color: lightseagreen;
+	margin-left: 5px;
+	font-size: 70%;
+}

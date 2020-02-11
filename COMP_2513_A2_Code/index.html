@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name ="author" content ="Elianna McKinnon">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- include jQuery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- external CSS file -->
+		<link rel="stylesheet" type = "text/css" href = "style.css">
+
+		<!-- Page title -->
+		<title>Madlibs</title>
+
+		<!-- Big JavaScript block of code begins here -->
+		<script>
+			$(document).ready(function() {
+
+			/* REQUIREMENT #7: the hide/show effect is used here from jQuery */
+		 	/* hide story upon loading page */
+		 	/* after all the values are verified below and var count is checked,
+		 	 * if all fields are filled in then the story will show story.
+		 	 * the line for this is down below where var count is checked. */
+  			$("#message").hide();
+
+		 	$('#first_form').submit(function(e) {
+		    	e.preventDefault();
+
+		    /* variables for 10 mad libs words/numbers */
+		    var adjective1 = $('#adjective1').val();
+		    var adjective2 = $('#adjective2').val();
+		    var noun1 = $('#noun1').val();
+		    var plural_noun1 = $('#plural_noun1').val();
+		    var noun2 = $('#noun2').val();
+		    var verb1 = $('#verb1').val();
+		    var verb2 = $('#verb2').val();
+		    var verb3 = $('#verb3').val();
+		    var num1 = $('#num1').val();
+
+		    /* variable for displaying resulting madlib*/
+		    var msg = "";
+
+		    /* var for counting inputted fields */
+		    var count = "";
+
+		    /* variables for checking validity of words/numbers */
+		    var regExWord = /^[A-Za-z]+$/;
+		    var regExNum = /^[0-9]+$/;
+		    var validWord;
+		    var validNum;
+
+		    /* from radio buttons on form, check which button was selected before
+		     * num2 ia assigned a value from it. if none selected, let it be an
+		     * empty space */
+		    if (document.getElementById('choice1').checked) {
+		      num2 = document.getElementById('choice1').value;
+		    }
+		    else if (document.getElementById('choice2').checked) {
+		      num2 = document.getElementById('choice2').value;
+		    }
+		    else if (document.getElementById('choice3').checked) {
+		      num2 = document.getElementById('choice3').value;
+		    }
+		    else {
+		      num2 = " ";
+		    }
+
+		    /* assures that any previous error msgs are removed when the page is refreshed */
+		    $(".error").remove();
+
+		    /* REQUIREMENTS #4 & #5: inputs below are checked for being null and either alpha or numeric
+		     * checking if name is null and valid (containing only letters)
+		     * this null/validity check continues for the rest of the variables */
+		    if (adjective1.length < 1) {
+		      $('#adjective1').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(adjective1);
+		      if (!validWord) {
+		        $('#adjective1').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (adjective2.length < 1) {
+		      $('#adjective2').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(adjective2);
+		      if (!validWord) {
+		        $('#adjective2').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (noun1.length < 1) {
+		      $('#noun1').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(noun1);
+		      if (!validWord) {
+		        $('#noun1').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (plural_noun1.length < 1) {
+		      $('#plural_noun1').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(plural_noun1);
+		      if (!validWord) {
+		        $('#plural_noun1').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (noun2.length < 1) {
+		      $('#noun2').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(noun2);
+		      if (!validWord) {
+		        $('#noun2').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (verb1.length < 1) {
+		      $('#verb1').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(verb1);
+		      if (!validWord) {
+		        $('#verb1').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (verb2.length < 1) {
+		      $('#verb2').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(verb2);
+		      if (!validWord) {
+		        $('#verb2').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (verb3.length < 1) {
+		      $('#verb3').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validWord = regExWord.test(verb3);
+		      if (!validWord) {
+		        $('#verb3').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (num1.length < 1) {
+		      $('#num1').after('<span class="error">Please fill in this field</span>');
+		      count++;
+		    } else {
+		      validNum = regExNum.test(num1);
+		      if (!validNum) {
+		        $('#num1').after('<span class="error">Please enter a valid word</span>');
+		        count++;
+		      }
+		    }
+
+		    if (count > 0) {
+		    	alert("Error: Not all fields are filled in or valid.");
+		    } else {
+   				$('#message').show();
+   			}
+
+		    /* REQUIREMENT #2: the two numerical input values are used for a calculation in the madlib output here 
+		     * REQUIREMENT #6: I tried making a madlib that creates a silly message talking about computers */
+		    msg = "<p>In this day and time, most students have a computer <b>" + adjective1 + "</b> enough to fit in a <b>" + noun1 + "</b>.<br> Computers are very smart and can complete tasks just by pushing their <b>" + plural_noun1 + "</b>.<br> Computers can do math, store data, web surf, and <b>" + verb1 + "</b>.<br> They can even <b>" + verb2 + "</b> better than humans can.<br> If you try and look inside a computer to check out what parts it has, you will probably find a/an <b>" + adjective2 + "</b> <b>" + noun2 + "</b>.<br> In <b>" + (num1*num2) + "</b> years, computers might even <b>" + verb3 + "</b> society.</p>"
+			document.getElementById('message').innerHTML = msg;
+
+		});
+});
+		</script>
+
+		<!-- Big JavaScript block of code begins here -->
+	</head>
+
+	<body>
+		
+		<!-- Page title and description -->
+		<h1>Madlibs | Computers</h1>
+		<p>Please enter the following fields below:</p>
+		<h4>For verbs: use non-continuous verbs (without "-ing")</h4>
+
+		<!-- Cartoon stock image of a computer-->
+		<img src="pc.jpg" alt="doodle_of_computer">
+
+		<!-- REQUIREMENT #1: 10 input values are taken inside a static form below -->
+		<form id="first_form">
+			<div>
+				<label for="adjective1">Size:</label>
+				<input type="text" id="adjective1" name="adjective1" placeholder="jumbo, minuscule...">
+		  	</div>
+
+		  	<div>
+				<label for="adjective2">Adjective:</label>
+				<input type="text" id="adjective2" name="adjective2" placeholder="dashing, icky...">
+		  	</div>
+
+		  	<div>
+				<label for="noun1">Noun:</label>
+				<input type="text" id="noun1" name="noun1">
+		  	</div>
+
+		  	<div>
+				<label for="plural_noun1">Plural noun:</label>
+				<input type="text" id="plural_noun1" name="plural_noun1">
+		  	</div>
+
+		  	<div>
+				<label for="noun2">Weird noun:</label>
+				<input type="text" id="noun2" name="noun2">
+		  	</div>
+
+		  	<div>
+				<label for="verb1">Verb:</label>
+				<input type="text" id="verb1" name="verb1">
+		  	</div>
+
+		  	<div>
+				<label for="verb2">Verb...:</label>
+				<input type="text" id="verb2" name="verb2">
+		  	</div>
+
+		  	<div>
+				<label for="verb3">Another verb...:</label>
+				<input type="text" id="verb3" name="verb3">
+		  	</div>
+
+		  	<!-- REQUIREMENT #2: the two input values taken in below are numbers. -->
+		  	<div>
+				<label for="num1">Number:</label>
+				<input type="number" id="num1" name="num1">
+		  	</div>
+
+		  	<!-- REQUIREMENT #3: this value is taken in by radio buttons -->
+		  	<p>Please select one more number:</p>
+		  	<div id="num2">
+				<input type="radio" id="choice1" name="choice" value="1">1
+  				<input type="radio" id="choice2" name="choice" value="5">5
+  				<input type="radio" id="choice3" name="choice" value="100">100
+		  	</div>
+
+			<button id="submitBtn">Lib it!</button>
+
+			<!-- REQUIREMENT #8: input values and resulting madlib is visible on the screen through the message div below -->
+			<div id="message"></div>
+		</form>
+
+		<hr>
+		<footer>
+			<p>Designed by Elianna McKinnon (142090m@acadiau.ca) | All rights reserved</p>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+8-10 input values
+- at least 2 numbers, calculation made with them and output shown on page
+values:
+1- adjective1 "Size" (jumbo, minuscule...)
+2- plural_noun1
+3- plural_noun2
+4- verb1
+5- verb2
+6- verb3
+7- adjective2
+8- noun1 "Something weird"
+9- num1
+10- num2 (radio button)
+calculation made by #'s: #1*#2
+value to be selected by radio buttons: num2
+ 
+Madlibs | Computers
+
+In this day and time, most students have a computer (adjective1) enough to fit in (num1) (plural noun). Computers are very smart and can complete tasks just by pushing their (plural noun #2). Computers can do math, store data, web surf, and (verb #1). They can even (verb #2) better than humans can. If you look inside at what parts a computer has nowadays, you will probably find a/an (adjective2) (noun). In (num1*num2) years, computers might (verb #3) society.
